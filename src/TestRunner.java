@@ -7,7 +7,7 @@ public class TestRunner {
 	public static void main(String[] args) {
 
 		if (args.length > 0 && args[0].equals("buggy")) {
-			RentACatTest._testRentACatBuggy = true;
+			Config.setBuggyRentACat(true);
 			System.out.println("TESTING BUGGY IMPLEMENTATION\n");
 		}
 		
@@ -28,6 +28,7 @@ public class TestRunner {
 
 			for (Failure f : r.getFailures()) {
 				System.out.println(f.toString());
+				System.out.println(f.getTrace());
 			}
 
 			// If r is not successful, there was at least one
