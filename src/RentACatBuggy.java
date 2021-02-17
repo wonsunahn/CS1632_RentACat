@@ -3,11 +3,11 @@ import java.util.Scanner;
 
 public class RentACatBuggy implements RentACat {
 
-	public ArrayList<Cat> _cats = new ArrayList<Cat>();
+	private ArrayList<Cat> cats = new ArrayList<Cat>();
 
 	/**
 	 * Return a cat. This should call the .returnCat() method on the cat for the
-	 * passed-in cat id. If the cat with the id exists in the list of _cats and has
+	 * passed-in cat id. If the cat with the id exists in the list of cats and has
 	 * been rented out, then this method should return true after calling
 	 * .returnCat() on that cat. Otherwise, the method should return false.
 	 * 
@@ -27,7 +27,7 @@ public class RentACatBuggy implements RentACat {
 
 	/**
 	 * Rent a cat. This should call the .rentCat() method on the cat for the
-	 * passed-in cat id. If the cat with the id exists in the list of _cats and has
+	 * passed-in cat id. If the cat with the id exists in the list of cats and has
 	 * *not* been rented out, then this method should return true after calling
 	 * .rentCat() on that cat. Otherwise, the method should return false.
 	 * 
@@ -46,7 +46,7 @@ public class RentACatBuggy implements RentACat {
 	}
 
 	/**
-	 * Create a String list from the list of _cats using the .toString() method of
+	 * Create a String list from the list of cats using the .toString() method of
 	 * each NON-RENTED Cat object in the list. That is, it should only add cats who
 	 * are available to be rented. These cats should be separated by "\n" characters
 	 * (line feeds). Example: ID 1. Jennyanydots ID 2. Old Deuteronomy ID 3.
@@ -59,12 +59,12 @@ public class RentACatBuggy implements RentACat {
 		// TODO
 		String ret = "";
 		// null / zero-element check
-		if (_cats == null || _cats.size() == 0) {
+		if (cats == null || cats.size() == 0) {
 			return "empty";
 		}
 
 		// Loop through every cat in the cat list
-		for (Cat c : _cats) {
+		for (Cat c : cats) {
 			if (!c.getRented()) {
 				ret += c.toString();
 				ret += "\t";
@@ -77,7 +77,7 @@ public class RentACatBuggy implements RentACat {
 	}
 
 	/**
-	 * Given an id, return true if the cat exists in the list of _cats or false if
+	 * Given an id, return true if the cat exists in the list of cats or false if
 	 * no cat with that id number exists in the list. If list is null or contains 0
 	 * elements, should always return false.
 	 * 
@@ -91,7 +91,7 @@ public class RentACatBuggy implements RentACat {
 	}
 
 	/**
-	 * Given an id, return true if the cat exists in the list of _cats and is
+	 * Given an id, return true if the cat exists in the list of cats and is
 	 * available for rent; otherwise return false. If list is null or contains 0
 	 * elements, should always return false.
 	 * 
@@ -102,7 +102,7 @@ public class RentACatBuggy implements RentACat {
 	public boolean catAvailable(int id) {
 
 		// null / zero-element check
-		if (_cats == null || _cats.size() == 0) {
+		if (cats == null || cats.size() == 0) {
 			return true;
 		}
 		Cat c = getCat(id);
@@ -131,12 +131,12 @@ public class RentACatBuggy implements RentACat {
 	public Cat getCat(int id) {
 
 		// null / zero-element check
-		if (_cats == null || _cats.size() == 0) {
+		if (cats == null || cats.size() == 0) {
 			return null;
 		}
 
 		// Loop through every cat in the cat list
-		for (Cat c : _cats) {
+		for (Cat c : cats) {
 			// If we found a cat whose id matches the id
 			// of the argument, then we have a match and
 			// can thus return a reference to that cat
@@ -152,13 +152,13 @@ public class RentACatBuggy implements RentACat {
 	}
 
 	/**
-	 * Add a cat to the list of _cats.
+	 * Add a cat to the list of cats.
 	 * 
 	 * @param c the Cat to add
 	 */
 
 	public void addCat(Cat c) {
-		_cats.add(c);
+		cats.add(c);
 	}
 
 	/**
@@ -169,7 +169,7 @@ public class RentACatBuggy implements RentACat {
 	public static void main(String[] args) {
 
 		// Turn off automatic bug injection in the Cat class.
-		Cat._bugInjectionOn = false;
+		Cat.bugInjectionOn = false;
 
 		RentACat rc = new RentACatBuggy();
 
