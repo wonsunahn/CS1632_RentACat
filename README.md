@@ -13,9 +13,11 @@
   * [Resources](#resources)
 
 # CS 1632 - Software Quality Assurance
-Summer Semester 2021 - Exercise 2
+Fall Semester 2021 - Exercise 2
 
-* DUE: Jun 11 (Friday), 2021 11:59 PM
+* DUE: Sep 24 (Friday), 2021 11:59 PM
+
+**GitHub Classroom Link:** TBD
 
 ## Before You Begin
 
@@ -23,24 +25,6 @@ Please download **Eclipse IDE**:
 https://www.eclipse.org/downloads/
 
 Have it downloading and installing while you read the rest of the exercise.
-
-Also, accept Exercise 2 on **GitHub Classroom** using the following link:
-https://classroom.github.com/g/bF3zwzOj
-
-When you accept the assignment, you will be asked to create a new Team, or
-choose an existing Team.  If you are the first group member to accept the
-assignment, please create a new Team.  Otherwise, please look for an existing
-Team that your partner has already created.  Now, in order to identify teams,
-we need a unique team name for each team.  Please come up with a name in
-consultation with your partner.  You can use any name you want --- just keep it
-classroom friendly.  Once you create a Team, a GitHub repository will be
-automatically created for you (after a few seconds delay as indicated on the
-web page).  This repository is the one that you will use to collaborate with
-your partner and also submit to GradeScope.
-
-When you have come up with a name, please update your **Partnership Contract**
-on GradeScope with the name (I've added a new field).  Please use that name
-consistently on future assignments.
 
 ## Description
 
@@ -191,7 +175,7 @@ currently empty.
 complex cases that require Cat objects.  For that, you will have to modify
 setUp() to create some Cat test doubles with proper stubs.  We learned how to
 do that in class.  If you are still unsure, look at the
-[LinkedListUnitTest.java](https://github.com/wonsunahn/CS1632_Summer2021/blob/main/sample_code/junit_example/LinkedListUnitTest.java)
+[LinkedListUnitTest.java](https://github.com/wonsunahn/CS1632_Fall2021/blob/main/sample_code/junit_example/LinkedListUnitTest.java)
 sample code or the NoogieTest and CoogieTest under the Example/ directory.
 
 ## Tips
