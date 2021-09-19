@@ -17,7 +17,7 @@ Fall Semester 2021 - Exercise 2
 
 * DUE: Sep 24 (Friday), 2021 11:59 PM
 
-**GitHub Classroom Link:** TBD
+**GitHub Classroom Link:** https://classroom.github.com/g/U__MtahE
 
 ## Before You Begin
 
