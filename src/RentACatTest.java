@@ -33,13 +33,13 @@ public class RentACatTest {
 		// 1. Create a new RentACat object and assign to r
 		r = RentACat.createInstance();
 
-		// 2. Create a mock Cat with ID 1 and name "Jennyanydots", assign to c1
+		// 2. Create an unrented mock Cat with ID 1 and name "Jennyanydots", assign to c1
 		// TODO: Fill in
 		
-		// 3. Create a mock Cat with ID 2 and name "Old Deuteronomy", assign to c2
+		// 3. Create an unrented mock Cat with ID 2 and name "Old Deuteronomy", assign to c2
 		// TODO: Fill in
 
-		// 4. Create a mock Cat with ID 3 and name "Mistoffelees", assign to c3
+		// 4. Create an unrented mock Cat with ID 3 and name "Mistoffelees", assign to c3
 		// TODO: Fill in
 		
 		// Hint: You will have to stub the mocked Cats to make them behave as if the ID
