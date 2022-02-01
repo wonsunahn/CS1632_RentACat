@@ -13,11 +13,11 @@
   * [Resources](#resources)
 
 # CS 1632 - Software Quality Assurance
-Fall Semester 2021 - Exercise 2
+Spring Semester 2022 - Exercise 2
 
-* DUE: Sep 24 (Friday), 2021 11:59 PM
+* DUE: Feb 4 (Friday), 2022 11:59 PM
 
-**GitHub Classroom Link:** https://classroom.github.com/g/U__MtahE
+**GitHub Classroom Link:** TBD
 
 ## Before You Begin
 
@@ -175,7 +175,7 @@ currently empty.
 complex cases that require Cat objects.  For that, you will have to modify
 setUp() to create some Cat test doubles with proper stubs.  We learned how to
 do that in class.  If you are still unsure, look at the
-[LinkedListUnitTest.java](https://github.com/wonsunahn/CS1632_Fall2021/blob/main/sample_code/junit_example/LinkedListUnitTest.java)
+[LinkedListUnitTest.java](https://github.com/wonsunahn/CS1632_Spring2022/blob/main/sample_code/junit_example/LinkedListUnitTest.java)
 sample code or the NoogieTest and CoogieTest under the Example/ directory.
 
 ## Tips
