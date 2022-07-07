@@ -1,7 +1,9 @@
+package edu.pitt.cs;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class RentACatBuggy implements RentACat {
+public class RentACatImpl implements RentACat {
 
 	private ArrayList<Cat> cats = new ArrayList<Cat>();
 
@@ -17,12 +19,7 @@ public class RentACatBuggy implements RentACat {
 
 	public boolean returnCat(int id) {
 		// TODO
-		Cat c = getCat(id);
-		if (c != null && !c.getRented()) {
-			c.returnCat();
-			return true;
-		}
-		return true;
+		return false;
 	}
 
 	/**
@@ -37,12 +34,7 @@ public class RentACatBuggy implements RentACat {
 
 	public boolean rentCat(int id) {
 		// TODO
-		Cat c = getCat(id);
-		if (c != null && c.getRented()) {
-			c.rentCat();
-			return true;
-		}
-		return true;
+		return false;
 	}
 
 	/**
@@ -57,23 +49,7 @@ public class RentACatBuggy implements RentACat {
 
 	public String listCats() {
 		// TODO
-		String ret = "";
-		// null / zero-element check
-		if (cats == null || cats.size() == 0) {
-			return "empty";
-		}
-
-		// Loop through every cat in the cat list
-		for (Cat c : cats) {
-			if (!c.getRented()) {
-				ret += c.toString();
-				ret += "\t";
-			}
-		}
-		// If we get all the way through the list and did
-		// not find a cat whose ID matches the passed-in
-		// ID, then the cat is not in the list
-		return ret;
+		return "WRITE CODE FOR THIS";
 	}
 
 	/**
@@ -87,7 +63,7 @@ public class RentACatBuggy implements RentACat {
 
 	public boolean catExists(int id) {
 		// TODO
-		return getCat(id) == null;
+		return false;
 	}
 
 	/**
@@ -103,20 +79,20 @@ public class RentACatBuggy implements RentACat {
 
 		// null / zero-element check
 		if (cats == null || cats.size() == 0) {
-			return true;
+			return false;
 		}
 		Cat c = getCat(id);
 		if (c == null) {
 			// No cat of this ID exists, thus it is not available
-			return true;
+			return false;
 		} else if (c.getRented()) {
 			// This cat exists, but has already been rented
-			return true;
+			return false;
 		}
 
 		// If cat exists and is not rented, then the cat
 		// is available to rent
-		return false;
+		return true;
 
 	}
 
@@ -171,7 +147,7 @@ public class RentACatBuggy implements RentACat {
 		// Turn off automatic bug injection in the Cat class.
 		Cat.bugInjectionOn = false;
 
-		RentACat rc = new RentACatBuggy();
+		RentACat rc = new RentACatImpl();
 
 		rc.addCat(new Cat(1, "Jennyanydots"));
 		rc.addCat(new Cat(2, "Old Deuteronomy"));

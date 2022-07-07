@@ -1,3 +1,5 @@
+package edu.pitt.cs;
+
 public interface RentACat {
 	public static RentACat createInstance() {
 		if(Config.getBuggyRentACat()) {

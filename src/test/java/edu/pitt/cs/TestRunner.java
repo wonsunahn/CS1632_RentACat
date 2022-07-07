@@ -1,3 +1,5 @@
+package edu.pitt.cs;
+
 import java.util.ArrayList;
 
 import org.junit.runner.*;
