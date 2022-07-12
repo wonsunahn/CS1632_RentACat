@@ -23,7 +23,7 @@ Summer Semester 2022 - Exercise 2
 
 * DUE: July 12 (Tuesday), 2022 11:30 AM
 
-**GitHub Classroom Link:** TBD
+**GitHub Classroom Link:** https://classroom.github.com/a/ICHUm7XF
 
 ## Before You Begin
 
@@ -133,7 +133,7 @@ compiled to class files under target/classes.
 1. Next, invoke the 'exec' phase designating RentACatImpl class:
 
    ```
-   mvn exec:java -Dexec.mainClass=edu.pitt.cs.RentACatImpl
+   mvn exec:java -D"exec.mainClass"="edu.pitt.cs.RentACatImpl"
    ```
 
    And then, try listing the cats available for rent:
