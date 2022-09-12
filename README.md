@@ -54,17 +54,23 @@ https://code.visualstudio.com/learn/collaboration/live-share
 
 ## Description
 
-In this exercise, we will simulate the main Rent-A-Cat rental system software.
-This is obviously a "toy" implementation of the vast and powerful Rent-A-Cat
-apparatus.
+In this exercise, we will actually build the Rent-A-Cat rental system that we
+discussed in the lecture.  We will complete the implementation under cover of
+unit testing by writing the test infrastructure in concert with the code.
 
-I have created some skeleton code for you to fill in for this exercise.  It is
-up to you to fill in the `returnCat()`, `rentCat()`, `listCats()` and
-`catExists()` methods, and write unit tests for them.  Unit tests must use
-doubles for the Cat object with appropriate stubbing.  I have intentionally
-inserted a defect on every Cat method such that an exception is fired if you
-try to use a real Cat object in any way during your unit testing!  Those
-defects are turned off when Cat is used within the main RentACat program.
+For this exercise, you will modify two classes to complete the
+system: **RentACatImpl.java** and **RentACatTest.java**.  The RentACatImpl
+class is an (incomplete) implementation of the Rent-A-Cat system.  The
+RentACatTest class is a JUnit test class that tests RentACatImpl.  All
+locations where you should add code is marked with // TODO comments.
+
+Now the RentACatImpl class is dependent upon the Cat class (same as in the
+example in the lecture), but the developers in charge of the Cat class is
+making slow progress and the class is chock full of bugs.  Nonetheless you are
+asked to write the RentACatTest class to unit test this class independent of
+the Cat class using the techniques we learned in the lecture.
+
+## Running the Program
 
 Rent-A-Cat rents cats to customers for various needs (mousing, companionship,
 homework help, etc.).  From the main menu, users may:
@@ -76,8 +82,6 @@ homework help, etc.).  From the main menu, users may:
 
 A cat which is out for rental cannot be rented and will not be listed until it
 has been returned.  We will not charge money for this exercise.
-
-## Running the Program
 
 This is an example expected interaction with the program:
 
@@ -146,11 +150,7 @@ compiled to class files under target/classes.
    ```
 
 That's not what you expected!  That is because the Rent-A-Cat system is
-incomplete.  For this exercise, you will modify two classes to complete the
-system: **RentACatImpl.java** and **RentACatTest.java**.  The RentACatImpl
-class is an (incomplete) implementation of the Rent-A-Cat system.  The
-RentACatTest class is a JUnit test class that tests RentACatImpl.  All
-locations where you should add code is marked with // TODO comments.
+incomplete.  It should work as expected after you are done.
 
 ## Running Unit Tests
 
@@ -212,7 +212,7 @@ TODO comments in them.
 
 ### The POM Maven build configuration
 
-As a side note, how did Maven know it had to achieve 20% coverage?
+How did Maven know it had to achieve 20% coverage?
 
 Everything about the Maven build and test process is governed by the
 [pom.xml](pom.xml) file which describes the POM (Project Object Model).
@@ -393,9 +393,9 @@ the JUnit test to try to figure it out.
 Now you should be confident enough to start writing the RentACatTest class for
 real.  Start by adding very simple tests to gain confidence.  Next, try adding
 more complex cases towards the bottom of RentACatTest.java that require Cat
-objects.  For that, you will have to modify setUp() to create some Cat mock
-objects with proper stubs.  We learned how to do that in the unit testing
-lectures.  If you are still unsure, look at the
+objects.  For that, you will have to modify setUp() to create some Cat objects
+that emulate the correct behavior.  We learned how to do that in the unit
+testing lectures.  If you are still unsure, look at the
 [LinkedListUnitTest.java](https://github.com/wonsunahn/CS1632_Summer2022/blob/main/sample_code/junit_example/LinkedListUnitTest.java)
 sample code.
 
