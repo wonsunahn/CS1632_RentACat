@@ -1,7 +1,5 @@
 - [CS 1632 - Software Quality Assurance](#cs-1632---software-quality-assurance)
   * [Before You Begin](#before-you-begin)
-    + [Install Apache Maven](#install-apache-maven)
-    + [Install VSCode](#install-vscode)
   * [Description](#description)
   * [Running the Program](#running-the-program)
   * [Running Unit Tests](#running-unit-tests)
@@ -19,37 +17,18 @@
 - [Resources](#resources)
 
 # CS 1632 - Software Quality Assurance
-Fall Semester 2022 - Exercise 2
+Spring Semester 2023 - Exercise 2
 
-* DUE: September 16 (Friday), 2022 11:59 PM
+* DUE: January 27 (Friday), 2023 11:59 PM
 
-**GitHub Classroom Link:** https://classroom.github.com/a/Qu1nEFJd
+**GitHub Classroom Link:** TBD
 
 ## Before You Begin
 
-### Install Apache Maven
+If you have not done so already, please [install Apache Maven](/exercises/0/README.md#install-apache-maven) and [install VSCode](/exercises/0/README.md#install-vscode) as
+instructed in the [Java Assessment Exercise](/exercises/0/README.md).
 
-In this class, we will be using the Apache Maven build framework to build and
-test our code.  Please download the binary zip file from:
-https://maven.apache.org/download.cgi
-
-Unzip the file at your preferred location and add the bin directory to your PATH enviornment variable as instructed in:
-https://maven.apache.org/install.html
-
-### Install VSCode
-
-In this class, we will be using VSCode as our default IDE.  It makes
-collaboration, code sharing, and other tasks much easier.  You may use other
-IDEs if you choose to do so.  All exercises and deliverables are designed so
-that they can be done independent of an IDE.
-
-If you choose to use VSCode, please download and install:
-https://code.visualstudio.com/download
-
-Please also install the "Extension Pack for Java" on VSCode by searching for it on the Extensions menu:
-https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack
-
-If you are working with a partner, you may also want to familiarize yourself with the Live Share feature on VSCode:
+Also, if you are working with a partner, you may also want to familiarize yourself with the Live Share feature on VSCode:
 https://code.visualstudio.com/learn/collaboration/live-share
 
 ## Description
@@ -178,18 +157,18 @@ invokes them one by one.  You should get a result that looks like this:
 
    [INFO]
    [INFO] --- jacoco-maven-plugin:0.8.4:report (post-unit-test) @ rentacat ---
-   [INFO] Loading execution data file C:\Users\mrabb\Documents\github\cs1632\CS1632_Fall2022\exercises\2\target\jacoco.exec
+   [INFO] Loading execution data file C:\Users\mrabb\Documents\github\cs1632\CS1632_Spring2023\exercises\2\target\jacoco.exec
    [INFO] Analyzed bundle 'rentacat' with 5 classes
    [INFO]
    [INFO] --- jacoco-maven-plugin:0.8.4:check (check-unit-test) @ rentacat ---
-   [INFO] Loading execution data file C:\Users\mrabb\Documents\github\cs1632\CS1632_Fall2022\exercises\2\target\jacoco.exec
+   [INFO] Loading execution data file C:\Users\mrabb\Documents\github\cs1632\CS1632_Spring2023\exercises\2\target\jacoco.exec
    [INFO] Analyzed bundle 'rentacat' with 5 classes
    [WARNING] Rule violated for class edu.pitt.cs.RentACatImpl: instructions covered ratio is 0.02, but expected minimum is 0.20
    [INFO] ------------------------------------------------------------------------
    [INFO] BUILD FAILURE
    [INFO] ------------------------------------------------------------------------
    [INFO] Total time:  2.986 s
-   [INFO] Finished at: 2022-07-06T22:09:19-04:00
+   [INFO] Finished at: 2023-01-06T22:09:19-04:00
    [INFO] ------------------------------------------------------------------------
    ...
    ```
@@ -396,7 +375,7 @@ more complex cases towards the bottom of RentACatTest.java that require Cat
 objects.  For that, you will have to modify setUp() to create some Cat objects
 that emulate the correct behavior.  We learned how to do that in the unit
 testing lectures.  If you are still unsure, look at the
-[LinkedListUnitTest.java](https://github.com/wonsunahn/CS1632_Fall2022/blob/main/sample_code/junit_example/LinkedListUnitTest.java)
+[LinkedListUnitTest.java](https://github.com/wonsunahn/CS1632_Spring2023/blob/main/sample_code/junit_example/LinkedListUnitTest.java)
 sample code.
 
 Some tips you may find useful while writing test cases:
