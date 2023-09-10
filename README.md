@@ -17,9 +17,9 @@
 - [Resources](#resources)
 
 # CS 1632 - Software Quality Assurance
-Summer Semester 2023 - Exercise 2
+Fall Semester 2023 - Exercise 2
 
-* DUE: July 11 (Tuesday), 2023 11:30 AM
+* DUE: September 15 (Friday), 2023 11:59 PM
 
 **GitHub Classroom Link:** TBD
 
@@ -157,18 +157,18 @@ invokes them one by one.  You should get a result that looks like this:
 
    [INFO]
    [INFO] --- jacoco-maven-plugin:0.8.4:report (post-unit-test) @ rentacat ---
-   [INFO] Loading execution data file C:\Users\mrabb\Documents\github\cs1632\CS1632_Summer2023\exercises\2\target\jacoco.exec
+   [INFO] Loading execution data file C:\Users\mrabb\Documents\github\cs1632\CS1632_Fall2023\exercises\2\target\jacoco.exec
    [INFO] Analyzed bundle 'rentacat' with 5 classes
    [INFO]
    [INFO] --- jacoco-maven-plugin:0.8.4:check (check-unit-test) @ rentacat ---
-   [INFO] Loading execution data file C:\Users\mrabb\Documents\github\cs1632\CS1632_Summer2023\exercises\2\target\jacoco.exec
+   [INFO] Loading execution data file C:\Users\mrabb\Documents\github\cs1632\CS1632_Fall2023\exercises\2\target\jacoco.exec
    [INFO] Analyzed bundle 'rentacat' with 5 classes
    [WARNING] Rule violated for class edu.pitt.cs.RentACatImpl: instructions covered ratio is 0.02, but expected minimum is 0.20
    [INFO] ------------------------------------------------------------------------
    [INFO] BUILD FAILURE
    [INFO] ------------------------------------------------------------------------
    [INFO] Total time:  2.986 s
-   [INFO] Finished at: 2023-07-05T22:09:19-04:00
+   [INFO] Finished at: 2023-09-05T22:09:19-04:00
    [INFO] ------------------------------------------------------------------------
    ...
    ```
@@ -375,7 +375,7 @@ more complex cases towards the bottom of RentACatTest.java that require Cat
 objects.  For that, you will have to modify setUp() to create some Cat objects
 that emulate the correct behavior.  We learned how to do that in the unit
 testing lectures.  If you are still unsure, look at the
-[LinkedListUnitTest.java](https://github.com/wonsunahn/CS1632_Summer2023/blob/main/sample_code/junit_example/LinkedListUnitTest.java)
+[LinkedListUnitTest.java](https://github.com/wonsunahn/CS1632_Fall2023/blob/main/sample_code/junit_example/LinkedListUnitTest.java)
 sample code.
 
 Some tips you may find useful while writing test cases:
