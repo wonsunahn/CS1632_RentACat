@@ -20,6 +20,9 @@ public interface RentACat {
 		}
 	}
 
+	// WARNING: You are not allowed to change any part of the interface.
+	// That means you cannot add any method nor modify any of these methods.
+
 	public boolean returnCat(int id);
 
 	public boolean rentCat(int id);
@@ -27,12 +30,6 @@ public interface RentACat {
 	public boolean renameCat(int id, String name);
 
 	public String listCats();
-
-	public boolean catExists(int id);
-
-	public boolean catAvailable(int id);
-
-	public Cat getCat(int id);
 
 	public void addCat(Cat c);
 }

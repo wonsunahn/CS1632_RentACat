@@ -74,7 +74,7 @@ public class RentACatImpl implements RentACat {
 	 * @return Cat searched for if exists, null otherwise
 	 */
 
-	public Cat getCat(int id) {
+	private Cat getCat(int id) {
 
 		// null / zero-element check
 		if (cats == null || cats.size() == 0) {

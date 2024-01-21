@@ -61,6 +61,11 @@ public class RentACatIntegrationTest {
 	 * Execution steps: Call getCat(2).
 	 * Postconditions: Return value is null.
 	 * </pre>
+	 * 
+	 * Hint: You will need to use Java reflection to invoke the private getCat(int)
+	 * method. efer to the Unit Testing Part 1 lecture and the textbook appendix 
+	 * hapter on using reflection on how to do this.  Please use r.getClass() to get
+	 * the class object of r instead of hardcoding it as RentACatImpl.
 	 */
 	@Test
 	public void testGetCatNullNumCats0() {
@@ -76,6 +81,11 @@ public class RentACatIntegrationTest {
 	 * Postconditions: Return value is not null.
 	 *                 Returned cat has an ID of 2.
 	 * </pre>
+	 * 
+	 * Hint: You will need to use Java reflection to invoke the private getCat(int)
+	 * method. efer to the Unit Testing Part 1 lecture and the textbook appendix 
+	 * hapter on using reflection on how to do this.  Please use r.getClass() to get
+	 * the class object of r instead of hardcoding it as RentACatImpl.
 	 */
 	@Test
 	public void testGetCatNumCats3() {
