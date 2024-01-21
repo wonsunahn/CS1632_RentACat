@@ -93,6 +93,7 @@ public class RentACatImpl implements RentACat {
 		// If we get all the way through the list and did
 		// not find a cat whose ID matches the passed-in
 		// ID, then the cat is not in the list
+		System.out.println("Invalid cat ID.");
 		return null;
 
 	}
