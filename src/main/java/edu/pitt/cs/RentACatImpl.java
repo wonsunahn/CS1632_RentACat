@@ -67,50 +67,6 @@ public class RentACatImpl implements RentACat {
 	}
 
 	/**
-	 * Given an id, return true if the cat exists in the list of cats or false if
-	 * no cat with that id number exists in the list. If list is null or contains 0
-	 * elements, should always return false.
-	 * 
-	 * @param id ID of cat to search for
-	 * @return true if cat exists in list, false otherwise
-	 */
-
-	public boolean catExists(int id) {
-		// TODO: Fill in
-		return false;
-	}
-
-	/**
-	 * Given an id, return true if the cat exists in the list of cats and is
-	 * available for rent; otherwise return false. If list is null or contains 0
-	 * elements, should always return false.
-	 * 
-	 * @param id ID of cat to search for
-	 * @return true if cat available for rent, false otherwise
-	 */
-
-	public boolean catAvailable(int id) {
-
-		// null / zero-element check
-		if (cats == null || cats.size() == 0) {
-			return false;
-		}
-		Cat c = getCat(id);
-		if (c == null) {
-			// No cat of this ID exists, thus it is not available
-			return false;
-		} else if (c.getRented()) {
-			// This cat exists, but has already been rented
-			return false;
-		}
-
-		// If cat exists and is not rented, then the cat
-		// is available to rent
-		return true;
-
-	}
-
-	/**
 	 * Given an id, return a reference to the specified cat if a cat with that ID
 	 * exists. Return null if no cat of that ID exists in the list.
 	 * 

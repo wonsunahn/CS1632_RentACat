@@ -20,6 +20,9 @@ public interface Cat {
 		}
 	}
 
+	// WARNING: You are not allowed to change any part of the interface.
+	// That means you cannot add any method nor modify any of these methods.
+	
 	public void rentCat();
 
 	public void returnCat();
