@@ -6,9 +6,17 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch Current File",
+            "name": "Launch RentACatImpl",
             "request": "launch",
-            "mainClass": "${file}"
+            "mainClass": "edu.pitt.cs.RentACatImpl",
+            "projectName": "rentacat"
+        },
+        {
+            "type": "java",
+            "name": "Launch RentACatSolution",
+            "request": "launch",
+            "mainClass": "edu.pitt.cs.RentACatSolution",
+            "projectName": "rentacat"
         },
         {
             "type": "java",
@@ -17,19 +25,5 @@
             "mainClass": "edu.pitt.cs.RentACatBuggy",
             "projectName": "rentacat"
         },
-        {
-            "type": "java",
-            "name": "Launch RentACatImpl",
-            "request": "launch",
-            "mainClass": "edu.pitt.cs.RentACatImpl",
-            "projectName": "rentacat"
-        },
-        {
-            "type": "java",
-            "name": "Launch TestRunner",
-            "request": "launch",
-            "mainClass": "edu.pitt.cs.TestRunner",
-            "projectName": "rentacat"
-        }
     ]
 }
