@@ -76,8 +76,8 @@ public class RentACatImpl implements RentACat {
 
 	private Cat getCat(int id) {
 
-		// null / zero-element check
-		if (cats == null || cats.size() == 0) {
+		// null check
+		if (cats == null) {
 			return null;
 		}
 
