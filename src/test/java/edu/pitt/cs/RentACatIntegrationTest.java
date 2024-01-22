@@ -3,6 +3,9 @@ package edu.pitt.cs;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -25,6 +28,10 @@ public class RentACatIntegrationTest {
 	Cat c2; // Second cat object
 	Cat c3; // Third cat object
 
+	ByteArrayOutputStream out; // Output stream for testing system output
+	PrintStream stdout; // Print stream to hold the original stdout stream
+	String newline = System.lineSeparator(); // Platform independent newline ("\n" or "\r\n") for use in assertEquals
+
 	@Before
 	public void setUp() throws Exception {
 		// INITIALIZE THE TEST FIXTURE
@@ -36,15 +43,20 @@ public class RentACatIntegrationTest {
 
 		// 3. Create a Cat with ID 2 and name "Old Deuteronomy", assign to c2
 		// TODO: Fill in
-		c2 = Cat.createInstance(InstanceType.IMPL, 2, "Old Deuteronomy");
 
 		// 4. Create a Cat with ID 3 and name "Mistoffelees", assign to c3
 		// TODO: Fill in
-		c3 = Cat.createInstance(InstanceType.IMPL, 3, "Mistoffelees");
+		
+		// 5. Redirect system output from stdout to the "out" stream
+		stdout = System.out; // Make a back up of the original stdout (DON'T REMOVE!)
+		// TODO: Fill in
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		// Redirect system output to the original stdout
+		System.setOut(stdout);
+
 		// Not necessary strictly speaking since the references will be overwritten in
 		// the next setUp call anyway and Java has automatic garbage collection.
 		r = null;
@@ -60,6 +72,7 @@ public class RentACatIntegrationTest {
 	 * Preconditions: r has no cats.
 	 * Execution steps: Call getCat(2).
 	 * Postconditions: Return value is null.
+	 *                 System output is "Invalid cat ID." + newline.
 	 * </pre>
 	 * 
 	 * Hint: You will need to use Java reflection to invoke the private getCat(int)
@@ -129,6 +142,7 @@ public class RentACatIntegrationTest {
 	 * Execution steps: Call renameCat(2, "Garfield").
 	 * Postconditions: Return value is false.
 	 *                 c2 is not renamed to "Garfield".
+	 *                 System output is "Invalid cat ID." + newline.
 	 * </pre>
 	 */
 	@Test
@@ -159,6 +173,7 @@ public class RentACatIntegrationTest {
 	 * Execution steps: Call rentCat(2).
 	 * Postconditions: Return value is true.
 	 *                 c2 is rented as a result of the execution steps.
+	 *                 System output is "Old Deuteronomy has been rented." + newline
 	 * </pre>
 	 */
 	@Test
@@ -175,6 +190,7 @@ public class RentACatIntegrationTest {
 	 * Execution steps: Call rentCat(2).
 	 * Postconditions: Return value is false.
 	 *                 c2 stays rented.
+	 *                 System output is "Sorry, Old Deuteronomy is not here!" + newline
 	 * </pre>
 	 */
 	@Test
@@ -191,6 +207,7 @@ public class RentACatIntegrationTest {
 	 * Execution steps: Call returnCat(2).
 	 * Postconditions: Return value is true.
 	 *                 c2 is returned as a result of the execution steps.
+	 *                 System output is "Welcome back, Old Deuteronomy!" + newline
 	 * </pre>
 	 */
 	@Test
@@ -206,6 +223,7 @@ public class RentACatIntegrationTest {
 	 * Execution steps: Call returnCat(2).
 	 * Postconditions: Return value is false.
 	 *                 c2 stays not rented.
+	 *                 System output is "Old Deuteronomy is already here!" + newline
 	 * </pre>
 	 */
 	@Test
