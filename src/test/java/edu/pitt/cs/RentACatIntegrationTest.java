@@ -48,13 +48,15 @@ public class RentACatIntegrationTest {
 		// TODO: Fill in
 		
 		// 5. Redirect system output from stdout to the "out" stream
-		stdout = System.out; // Make a back up of the original stdout (DON'T REMOVE!)
-		// TODO: Fill in
+		// First, make a back up of System.out (which is the stdout to the console)
+		stdout = System.out;
+		// Second, update System.out to the PrintStream created from "out"
+		// TODO: Fill in.  Refer to the textbook chapter 14.6 on Testing System Output.
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		// Redirect system output to the original stdout
+		// Restore System.out to the original stdout
 		System.setOut(stdout);
 
 		// Not necessary strictly speaking since the references will be overwritten in
