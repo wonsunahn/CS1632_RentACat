@@ -35,16 +35,23 @@ public class RentACatIntegrationTest {
 	@Before
 	public void setUp() throws Exception {
 		// INITIALIZE THE TEST FIXTURE
-		// 1. Create a new RentACat object and assign to r
+
+		// 1. Create a new RentACat object and assign to r using a call to RentACat.createInstance(InstanceType).
+		// Passing InstanceType.IMPL as the first parameter will create a real RentACat object using your RentACatImpl implementation.
+		// Passing InstanceType.MOCK as the first parameter will create a mock RentACat object using Mockito.
+		// Which type is the correct choice for this integration test?  I'll leave it up to you.  The answer is in the Unit Testing Part 2 lecture. :)
 		// TODO: Fill in
 
-		// 2. Create a Cat with ID 1 and name "Jennyanydots", assign to c1
+		// 2. Create a Cat with ID 1 and name "Jennyanydots", assign to c1 using a call to Cat.createInstance(InstanceType, int, String).
+		// Passing InstanceType.IMPL as the first parameter will create a real cat using your CatImpl implementation.
+		// Passing InstanceType.MOCK as the first parameter will create a mock cat using Mockito.
+		// Which type is the correct choice for this integration test?  Again, I'll leave it up to you.
 		// TODO: Fill in
 
-		// 3. Create a Cat with ID 2 and name "Old Deuteronomy", assign to c2
+		// 3. Create a Cat with ID 2 and name "Old Deuteronomy", assign to c2 using a call to Cat.createInstance(InstanceType, int, String).
 		// TODO: Fill in
 
-		// 4. Create a Cat with ID 3 and name "Mistoffelees", assign to c3
+		// 4. Create a Cat with ID 3 and name "Mistoffelees", assign to c3 using a call to Cat.createInstance(InstanceType, int, String).
 		// TODO: Fill in
 		
 		// 5. Redirect system output from stdout to the "out" stream

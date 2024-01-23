@@ -19,7 +19,7 @@
 # CS 1632 - Software Quality Assurance
 Spring Semester 2024 - Exercise 2
 
-* DUE: January 28 (Sunday), 2024 11:59 PM
+* DUE: February 4 (Sunday), 2024 11:59 PM
 
 **GitHub Classroom Link:** TBD
 
@@ -34,170 +34,17 @@ Also, if you are working with a partner, you may also want to familiarize
 yourself with the Live Share feature on VSCode:
 https://code.visualstudio.com/learn/collaboration/live-share
 
-## Description
-
-In this exercise, we will actually build the Rent-A-Cat rental system that we
-discussed in the lecture.  We will complete the implementation under cover of
-unit testing by writing the test infrastructure in concert with the code.
-
-For this exercise, you will modify two classes to complete the
-system: **RentACatImpl.java** and **RentACatTest.java**.  The RentACatImpl
-class is an (incomplete) implementation of the Rent-A-Cat system.  The
-RentACatTest class is a JUnit test class that tests RentACatImpl.  All
-locations where you should add code is marked with // TODO comments.
-
-Now the RentACatImpl class is dependent upon the Cat class (same as in the
-example in the lecture), but the developers in charge of the Cat class is
-making slow progress and the class is chock full of bugs.  Nonetheless you are
-asked to write the RentACatTest class to unit test this class independent of
-the Cat class using the techniques we learned in the lecture.
-
-## Running the Program
-
-Rent-A-Cat rents cats to customers for various needs (mousing, companionship,
-homework help, etc.).  From the main menu, users may:
-
-1. See list of cats for rent
-2. Rent a cat to a customer
-3. Return a cat
-4. Quit
-
-A cat which is out for rental cannot be rented and will not be listed until it
-has been returned.  We will not charge money for this exercise.
-
-This is an example expected interaction with the program:
-
-```
-Option [1,2,3,4] > 1
-Cats for Rent
-ID 1. Jennyanydots
-ID 2. Old Deuteronomy
-ID 3. Mistoffelees
-Option [1,2,3,4] > 2
-Rent which cat? > 1
-Jennyanydots has been rented.
-Option [1,2,3,4] > 1
-Cats for Rent
-ID 2. Old Deuteronomy
-ID 3. Mistoffelees
-Option [1,2,3,4] > 2
-Rent which cat? > 1
-Sorry, Jennanydots is not here!
-Rent which cat? > 7
-Invalid cat ID.
-Rent which cat? > 3
-Mistoffelees has been rented.
-Option [1,2,3,4] > 1
-Cats for Rent
-ID 2. Old Deuteronomy
-Option [1,2,3,4] > 3
-Return which cat? > 7
-Invalid cat ID.  
-Return which cat? Jennyanydots
-Invalid cat ID.
-Return which cat? 1
-Welcome back, Jennyanydots!
-Option [1,2,3,4] > 1
-Cats for Rent
-ID 1. Jennyanydots
-ID 2. Old Deuteronomy
-Option [1,2,3,4] > 4
-Closing up shop for the day!
-```
-
-Let's try running the program and observe the output for ourselves.
-
-1. First let's compile the program using the 'compile' phase on Maven:
-
-   ```
-   mvn compile
-   ```
-
-   If the compilation is successful, all the Java soure codes under src/ are
-compiled to class files under target/classes.
-
-1. Next, invoke the 'exec' phase designating RentACatImpl class:
-
-   ```
-   mvn exec:java 
-   ```
-
-   And then, try listing the cats available for rent:
-
-   ```
-   ...
-   Option [1,2,3,4] > 1
-   Cats for Rent
-   WRITE CODE FOR THISOption [1,2,3,4] >
-   ```
-
-That's not what you expected!  That is because the Rent-A-Cat system is
-incomplete.  It should work as expected after you are done.
-
-## Running Unit Tests
-
-1. First let's see if we can find any bugs by running unit tests by invoking
-   the 'test' phase in Maven:
-
-   ```
-   mvn test
-   ```
-
-   The Maven framework looks for any JUnit test classes under src/test/, and
-invokes them one by one.  You should get a result that looks like this:
-
-   ```
-   ...
-   -------------------------------------------------------
-    T E S T S
-   -------------------------------------------------------
-   Running edu.pitt.cs.RentACatTest
-   Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.116 sec
-
-   Results :
-
-   Tests run: 13, Failures: 0, Errors: 0, Skipped: 0
-
-   [INFO]
-   [INFO] --- jacoco-maven-plugin:0.8.4:report (post-unit-test) @ rentacat ---
-   [INFO] Loading execution data file C:\Users\mrabb\Documents\github\cs1632\CS1632_Spring2024\exercises\2\target\jacoco.exec
-   [INFO] Analyzed bundle 'rentacat' with 5 classes
-   [INFO]
-   [INFO] --- jacoco-maven-plugin:0.8.4:check (check-unit-test) @ rentacat ---
-   [INFO] Loading execution data file C:\Users\mrabb\Documents\github\cs1632\CS1632_Spring2024\exercises\2\target\jacoco.exec
-   [INFO] Analyzed bundle 'rentacat' with 5 classes
-   [WARNING] Rule violated for class edu.pitt.cs.RentACatImpl: instructions covered ratio is 0.02, but expected minimum is 0.20
-   [INFO] ------------------------------------------------------------------------
-   [INFO] BUILD FAILURE
-   [INFO] ------------------------------------------------------------------------
-   [INFO] Total time:  2.986 s
-   [INFO] Finished at: 2024-01-15T22:09:19-04:00
-   [INFO] ------------------------------------------------------------------------
-   ...
-   ```
-
-   Note that out of the 13 unit tests run, 0 tests were failures.  Apparently,
-all tests passed!  So are done?  Far from it!  The reason that there are no
-failures is because all test cases are currently empty.  Pay attention to the
-following line in the output:
-
-   ```
-   [WARNING] Rule violated for class edu.pitt.cs.RentACatImpl: instructions covered ratio is 0.02, but expected minimum is 0.20
-   ```
-
-   It is saying that the test phase expected a minimum of 20% instruction
-coverage for the RentACatImpl class, but the tests achieved only 2%.  Hence
-that is why it says 'BUILD FAILURE' in the end.  We were only able to cover 2%
-exactly becauase all test cases are empty.  You can see for yourself in
-RentACatTest.java under the src/test/ folder that all test cases only have //
-TODO comments in them.
-
 ### The POM Maven build configuration
 
-How did Maven know it had to achieve 20% coverage?
+Before we begin, let's take a moment to learn a little bit about the Maven
+build framework.  The Maven build framework automates building, testing,
+running, packaging, and deploying your code.  The VSCode IDE also internally
+uses a Maven extension to piggyback on the Maven build system for Maven
+projects.
 
-Everything about the Maven build and test process is governed by the
-[pom.xml](pom.xml) file which describes the POM (Project Object Model).
+All Maven projects have a file named [pom.xml](pom.xml) file which describes
+the POM (Project Object Model).  Everything about the Maven build and test
+process is governed by this file.
 
 We learned that enforcing a uniform set of preconditions is key to reproducible
 testing.  For non-trivial Java projects, those preconditions include external
@@ -217,34 +64,33 @@ as dependencies:
   <dependencies>
 
     <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-all</artifactId>
-      <version>2.0.2-beta</version>
-      <scope>test</scope>
-    </dependency>
-
-
-    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
-
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>5.7.0</version>
+    </dependency>
+    <dependency>
+    ...
   </dependencies>
 ```
 
 These dependencies (and all other transitively dependent packages) are
 automatically downloaded from [Maven Central](https://search.maven.org/), and
-stored in a local cache so that they don't have to be downloaded every time.
-You can visit the pages for
-[mockito-all](https://search.maven.org/artifact/org.mockito/mockito-all/2.0.2-beta/jar)
-and [junit](https://search.maven.org/artifact/junit/junit/4.13.2/jar) for
+stored in a local cache (a hidden ".m2" folder in your home folder) so that
+they don't have to be downloaded every time.  You can visit the pages for
+[mockito-core](https://mvnrepository.com/artifact/org.mockito/mockito-core/5.7.0)
+and [junit](https://search.maven.org/artifact/junit/junit/4.13.2) for
 yourself to download the Jar files manually.
 
 In addition to dependency management, the POM file allows you to insert
 arbitrary third party plugins during the build process.  In the provided
-[pom.xml](pom.xml) file, you will see the Jacoco plugin:
+[pom.xml](pom.xml) file, you will see the jacoco-maven-plugin and the
+exec-maven-plugin, among others:
 
 ```
   <build>
@@ -255,14 +101,194 @@ arbitrary third party plugins during the build process.  In the provided
         <version>${jacoco-maven-plugin.version}</version>
         ...
       </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+          <mainClass>edu.pitt.cs.RentACatImpl</mainClass>
+        </configuration>
+      </plugin>
+      ...
     </plugins>
   </build>
 ```
 
-Jacoco is short for the **Ja**va **Co**de **Co**verage tool.  Going back to the
-original question, how did Maven know it had to achieve 20% coverage?  Well,
-the Jacoco plugin was configured as such:
+The jacoco-maven-plugin gives you the ability to measure test coverage and the
+exec-maven-plugin gives you the ability to run Java programs (in this case the
+RentACatImpl class).
 
+## Description
+
+In this exercise, we will actually build the Rent-A-Cat rental system that we
+discussed in the lecture.  We will complete the implementation under cover of
+unit testing by writing the test infrastructure in concert with the code.
+
+For this exercise, you will modify the classes in the source tree in the
+following ways:
+
+* Cat.java - The Cat interface with a createInstance method with which to create Cats of different types.  **Fill in** the part where the method creates a mock Cat type.
+* CatImpl.java - An implementation of the Cat interface.  **Fill in** the class with member variables and method implementations.
+* InstanceType.java - This is a Java enumeration for instance types, and you don't need to touch.
+* RentACat.java - The RentACat interface with a createInstance method with which to create RentACats of different types.  **Fill in** the part where the method creates a mock RentACat type.
+* RentACatImpl.java - An implementation of the RentACat interface.  **Fill in** the methods that are still incomplete.
+
+* CatUnitTest.java - The JUnit class that unit tests Cat objects.
+* RentACatUnitTest.java - The JUnit class that unit tests RentACat objects.
+* RentACatIntegrationTest.java - The JUnit class that integration tests the entire Rent-A-Cat system.
+
+All source code locations where you need to add code is marked with "// TODO"
+comments.  These comments conveniently show up in the Problems pane of your
+VSCode IDE.
+
+## Running the Program
+
+Please refer to the [Deliverable 1 README](../deliverables/1#rent-a-cat-system)
+for details on how to operate the Rent-A-Cat system.
+
+### Using VSCode
+
+You can run the program using the VSCode "Run and Debug" extension on the left
+menu (the one that looks like a play icon with a bug attached to it).  Once you
+click on it, you will see a dropdown menu on the topside.  
+
+1. To launch the solution version of the program, choose "Launch
+   RentACatSolution" and then press the green play button.  
+
+   After you luanch the program, try listing the cats available for rent:
+
+   ```
+   Option [1,2,3,4,5] > 1
+   Cats for Rent
+   ID 1. Jennyanydots
+   ID 2. Old Deuteronomy
+   ID 3. Mistoffelees
+   Option [1,2,3,4,5] > 5
+   Closing up shop for the day!
+   ```
+
+1. To launch the current implementation of the program, choose "Launch
+RentACatImpl" and then press the green play button.  
+
+   ```
+   Option [1,2,3,4,5] > 1
+   Cats for Rent
+   WRITE CODE FOR THISOption [1,2,3,4,5] > 5
+   Closing up shop for the day!
+   ```
+
+   That's not what you expected!  That is because the Rent-A-Cat system is
+incomplete.  It should work as expected after you are done.
+
+If you are curious about how the "Run and Debug" extension works, it is
+configured by the .vscode/launch.json file in the same folder.
+
+### Using Commandline
+
+You can also run the program on the commandline using Maven.
+
+1. To launch the solution version of the program, you simply need to invoke the
+solution jar file included in the folder:
+
+   ```
+   java -jar rentacat-solution-1.0.0.jar
+   ```
+
+1. To launch the current implementation of the program, you first need to
+compile the program using the 'test-compile' phase on Maven:
+
+   ```
+   mvn test-compile
+   ```
+
+   If the compilation is successful, all soure codes under src/ are compiled to
+class files under target/classes.  Make sure you invoke the 'test-compile'
+phase and not the 'compile' phase.  The former will compile both your
+implementation classes under the src/main folder and your test classes under
+the src/test folder.  The latter will only compile your implementation classes.
+
+   Next, invoke the 'exec' phase, which is configured to invoked RentACatImpl in pom.xml:
+
+   ```
+   mvn exec:java 
+   ```
+
+## Testing the Program
+
+Again, you can use either VSCode or the commandline to test your program.
+
+### Using VSCode
+
+You can run the program using the VSCode "Testing" extension on the left menu
+(the one that looks like a flask icon).  Once you click on it, you will see
+options to run the entire test suite, an individual JUnit test class, or an
+individual JUnit test method. 
+
+The "Testing" extension solely invokes the JUnit test classes and does not
+invoke third party Maven testing plugins listed in the pom.xml file, such as
+Jacoco.  For that, you will have to invoke Maven directly as explained below.
+
+### Using Commandline
+
+You can invoke the 'test' phase in Maven:
+
+   ```
+   mvn test
+   ```
+
+   The Maven framework looks for any JUnit test classes under src/test/, and
+invokes them one by one.  You should get a result that looks like this:
+
+```
+...
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running edu.pitt.cs.CatUnitTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 s -- in edu.pitt.cs.CatUnitTest
+[INFO] Running edu.pitt.cs.RentACatIntegrationTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in edu.pitt.cs.RentACatIntegrationTest
+[INFO] Running edu.pitt.cs.RentACatUnitTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in edu.pitt.cs.RentACatUnitTest
+[INFO] 
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO]
+[INFO] --- jacoco:0.8.11:report (post-unit-test) @ rentacat ---
+[INFO] Loading execution data file C:\Users\mrabb\Documents\github\cs1632\CS1632_RentACat\target\jacoco.exec
+[INFO] Analyzed bundle 'rentacat' with 5 classes
+[INFO] 
+[INFO] --- jacoco:0.8.11:check (check-unit-test) @ rentacat ---
+[INFO] Loading execution data file C:\Users\mrabb\Documents\github\cs1632\CS1632_RentACat\target\jacoco.exec
+[INFO] Analyzed bundle 'rentacat' with 5 classes
+[WARNING] Rule violated for class edu.pitt.cs.RentACatImpl: instructions covered ratio is 0.00, but expected minimum is 0.20
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.047 s
+[INFO] Finished at: 2024-01-23T09:34:07-05:00
+[INFO] ------------------------------------------------------------------------
+...
+```
+
+Note that out of the 27 tests run, 0 tests were failures.  Apparently, all
+tests passed!  So are we done?  Far from it!  The reason that there are no
+failures is because all test cases are currently empty.  Pay attention to the
+following line in the output:
+
+```
+[WARNING] Rule violated for class edu.pitt.cs.RentACatImpl: instructions covered ratio is 0.00, but expected minimum is 0.20
+```
+
+It is saying that the test phase expected a minimum of 20% instruction coverage
+for the RentACatImpl class, but the tests achieved 0%.  Hence that is why it
+says 'BUILD FAILURE' in the end.  We were only able to cover 0% exactly
+becauase all test cases are empty.  You can see for yourself in all the test
+classes under the src/test/ folder that all test cases have just // TODO
+comments in them.  The 20% coverage threshold is configured in the pom.xml file
+in the Jacoco plugin section:
 
 ```
    ...
@@ -287,16 +313,16 @@ the Jacoco plugin was configured as such:
    ...
 ```
 
-You can see that Jacoco was configured to enforce 20% coverage in instruction
-count per class, and the only class that we are interested in is
-edu.pitt.cs.RentACatImpl (since that is the class that we are unit testing).
-The documentation on how to configure like the above is given at:
-https://www.eclemma.org/jacoco/trunk/doc/check-mojo.html
+Jacoco is short for the **Ja**va **Co**de **Co**verage tool.  The documentation
+on how to configure like the above is given at:
+https://www.eclemma.org/jacoco/trunk/doc/check-mojo.html We will talk more
+about Jacoco later in the [Measuring Code Coverage](#measuring-code-coverage)
+section.
 
-We will talk more about Jacoco later in the [Measuring Code
-Coverage](#measuring-code-coverage) section.
+## Software Developement Life Cycle using Test Driven Development
 
-## Using TDD to Complete the Implementation
+Now we know how to run the program and test the program, it is time to get to
+work in completing the Rent-A-Cat system.
 
 We will try to apply the Test Driven Development (TDD) model and the
 Red-Green-Refactor (RGR) loop.  Try writing the test case(s) FIRST before
@@ -306,193 +332,83 @@ any part of it in the course of adding a feature or refactoring your code, you
 will know immediately.  Otherwise, if you test at the very end, it will be much
 harder to find the defect and fix it.
 
-### Red Phase
+Then, the logical order with which to write the code is the following:
 
-This is the phase where you start by writing a test case.  Let's start with the
-first test case in RentACatTest.java: testGetCatNullNumCats0.
+1. CatUnitTest.java - Write the unit tests for Cat (Red: most tests will initially fail).
+1. CatImpl.java - Write the implementation for Cat (Green: all tests should pass now).  Refactor as needed.
+1. RentACatUnitTest.java - Write the unit tests for RentACat (Red: most tests will initially fail).
+1. RentACatImpl.java - Write the implementation for RentACat (Green: all tests should pass now).  Refactor as needed.
+1. RentACatIntegrationTest.java - Write integration tests for the Rent-A-Cat system (Hopefully everything works together).
 
-Let's start by doing a sanity test to see if the following test will pass by replacing the // TODO comment with this line:
+When writing the JUnit test cases, please pay close attention to the Javadoc
+comment above each test method that describes the preconditions, execution
+steps, and postconditions for that test case.  Also, please note that all or
+part of the preconditions may be fulfilled by the test fixture built in the
+@Before setUp() method in every JUnit test class.
 
-```
-assertTrue(true);
-```
+In the @Before setUp() method of each test class, you are asked to create Cat
+objects and RentACat objects that comprise the test fixture, as part of your
+TODOs.  You have a choice between creating real objects or mock objects,
+depending on the testing situation.  I will leave it up to you to make the
+correct decision based on the lectures.  If you are creating a mock object, you
+will have to fill in the TODO code for creating that mock object in either the
+Cat.java or RentACat.java interfaces.
 
-And then running the test phase again:
+Another thing you need to do in the @Before setUp() method is to hijack the
+system output for testing purposes.  Please refer to the
+[textbook](../../software-quality-assurance-textbook.pdf) chapter 14.6 on
+Testing System Output.  In short, you need to first back up the original system
+output which is going to stdout (the standard output to your console).  Then
+you need to replace it with a ByteArrayOutputStream variable named "out".  Now
+all prints to System.out will be stored in the "out" buffer, which can be
+converted to a String for testing purposes using out.toString().  In the @After
+tearDown() method, you will restore stdout to system output.  Now, this may
+complicate print debugging since all your debugging messages will go to "out"
+instead of being printed to your console.  For debugging purposes, you can use
+System.err.println rather than System.out.println, which uses the stderr
+stream, which still goes to the console.  In VSCode, stderr is routed to a
+special console called the Debug Console that is available as a tab on the
+bottom pane.
 
-```
-mvn test
-```
+### Verifying Your Test Cases
 
-If you see all 13 test cases pass as before, great!  Now let's try an assertion that fails.  Change the above to:
+While you are still in the Red phase of the RGR loop, it is hard to have
+confidence in your test code if you are a novice JUnit tester, especially since
+your test is most likely failing.  To ease development, I have provided a
+solution version of the software and also a buggy version of the software in
+the rentacat-solution-1.0.0.jar file.  The JAR file includes the CatSolution
+and RentACatSolution classes along with CatBuggy and RentACatBuggy classes.
+Being a JAR file, the source code of those classes are not available to you
+(for obvious reasons), but you can still invoke them.
 
-```
-assertFalse(true);
-```
-
-And then run 'mvn test' again.  You should see one failure:
-
-```
--------------------------------------------------------
- T E S T S
--------------------------------------------------------
-Running edu.pitt.cs.RentACatTest
-Tests run: 13, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.216 sec <<< FAILURE!
-testGetCatNullNumCats0(edu.pitt.cs.RentACatTest)  Time elapsed: 0 sec  <<< FAILURE!
-java.lang.AssertionError
-        at org.junit.Assert.fail(Assert.java:87)
-        at org.junit.Assert.assertTrue(Assert.java:42)
-        at org.junit.Assert.assertTrue(Assert.java:53)
-        at edu.pitt.cs.RentACatTest.testGetCatNullNumCats0(RentACatTest.java:71)
-...
-Results :
-
-Failed tests:   testGetCatNullNumCats0(edu.pitt.cs.RentACatTest)
-
-Tests run: 13, Failures: 1, Errors: 0, Skipped: 0
-...
-```
-
-Now, instead of just doing 'assertFalse(true)', you also have the option of supplying a failure message as the first argument to assertFalse:
-
-```
-assertFalse("True is not false", true);
-```
-
-If you run 'mvn test' again, you will get the failure message on the output:
+In order to create solution versions of the Cat and RentACat classes do the
+following in the @Before setUp() method:
 
 ```
-...
-Failed tests:   testGetCatNullNumCats0(edu.pitt.cs.RentACatTest): True is not false
-...
+c1 = Cat.createInstance(InstanceType.SOLUTION, 1, "Jennyanydots");
+```
+```
+r = RentACat.createInstance(InstanceType.SOLUTION);
 ```
 
-Every JUnit assertion has an optional first argument where you can supply the
-failure message.  It is a good habit to always supply a failure message which
-describes what failed and why it failed.  That way, the tester is not forced to
-parse the exception stack trace and then read the relevant source code line on
-the JUnit test to try to figure it out.
-
-Now you should be confident enough to start writing the RentACatTest class for
-real.  Start by adding very simple tests to gain confidence.  Next, try adding
-more complex cases towards the bottom of RentACatTest.java that require Cat
-objects.  For that, you will have to modify setUp() to create some Cat objects
-that emulate the correct behavior.  We learned how to do that in the unit
-testing lectures.  If you are still unsure, look at the
-[LinkedListUnitTest.java](https://github.com/wonsunahn/CS1632_Spring2024/blob/main/sample_code/junit_example/LinkedListUnitTest.java)
-sample code.
-
-Some tips you may find useful while writing test cases:
-
-1. Each @Test method represents a test case.  A JUnit class with one or more
-   @Test methods represents a test plan. A JUnit class is usually named after
-whichever class it is testing, with the string `Test` appended to the tested
-class name.  For example, Foo.java would be tested by FooTest.java.  But this
-is not necessarily the case.  A JUnit class may test multiple classes with
-related functionality; in that case, it is typically named after the
-functionality it is testing.
-  
-1. Make use of the @Before and @After methods in your JUnit testing.  @Before
-   and @After methods are invoked before and after each @Test method.  They are
-used to set up and tear down test fixtures.  Test fixtures in JUnit are objects
-that need to be created and initialized before performing each test case.  You
-can think of them as "actors" in your test script.  Having the @Before and
-@After allows us to avoid duplicating test fixture code in each test case.
-
-1. In RentACatTest.java, pay close attention to the Javadoc comments on top of
-   each @Test method which describe the preconditions, execution steps, and
-postconditions.  Remember, part of the preconditions may be already fulfilled
-with the test fixture initialized in the @Before method.
-
-1. You should use test doubles/mocks for any references to classes other than
-   the one under test that the tested class is dependent upon (i.e. you need to
-mock any Cat objects).  In fact, if you don't mock Cat and use the actual Cat
-objects, your tests will most likely fail.  I have injected artificial defects
-in the form of exceptions into the Cat class to emulate a buggy Cat class.
-Because your tests should work regardless of what's inside Cat.  As to the
-ArrayList class used to store the list of Cats, you do not need to mock it even
-if RentACatImpl is dependent upon it.  ArrayList is a Java standard library
-class so we will assume that it is fully tested and defect-free at this point.
-:)
-
-1. Remember to _not_ mock the class under test (i.e. RentACat), only external
-   classes that it depends upon (i.e. Cat).  If you mock RentACat, and then
-test the behavior that you are mocking, what are you testing?  You are testing
-your test code and not your implementation!  In fact, this type of test is
-called a **tautological test** since it will always pass, regardless of whether
-your implementation has a defect or not.
-
-1. The easiest thing to do is assert against a return value, but you can also
-   assert against attributes of an object.  For example:
-
-    ```
-    @Test
-    public void testCatName() {
-       assertEquals("Expected name", cat.getName());
-    }
-    ```
-    You can also use the Mockito verify method to perform behavior verification.
-
-### Green Phase
-
-This is where you complete the relevant method in RentACatImpl.java.  There are
-a few methods that have already been filled in, which should pass without
-having to do anything more.  There are also methods with // TODO comments that
-you have to fill in before passing the test cases.
-
-### Refactor Phase
-
-Look for opportunities to streamline your code or make it more readable.  After
-you are done with the refactor phase, all test cases should pass again and you
-should be ready for the next iteration of RGR loop for the next test case.
-
-## Verifying the Test Cases
-
-By now, all test cases should have been implemented and all test cases should
-pass.  You have come full circle!  But wait, does this mean RentACat is
-bug-free?  How do you know if your unit tests themselves had defects and that's
-why they passed, even when RentACat is buggy?  
-
-Let's perform an extra step to verify the unit tests themselves to make sure
-that they themselves are not defective.  One way to verify unit tests is to
-test them on buggy programs to see if they detect the bugs as they are intended
-to.  I have created a buggy version of Rent-A-Cat just for this purpose named
-RentACatBuggy.java.  
-
-In order to apply your unit tests to RentACatBuggy, add the following line to
-the beginning of the @Before setUp() method:
+In order to create buggy versions, do the following:
 
 ```
-Config.setBuggyRentACat(true);
+c1 = Cat.createInstance(InstanceType.BUGGY, 1, "Jennyanydots");
+```
+```
+r = RentACat.createInstance(InstanceType.BUGGY);
 ```
 
-This will ensure that a RentACatBuggy instance is returned when you later do 'r
-= RentACat.createInstance();' in the setUp() method.
+If you implemented your test case correctly, it should always pass for the
+solution object and it should almost always fail for the buggy object.  There
+are only 3 exceptions where the buggy object passes and they are:
+RentACatIntegrationTest.testGetCatNullNumCats0(),
+RentACatUnitTest.testGetCatNullNumCats0(), and
+RentACatUnitTest.testGetCatNumCats3().
 
-Now if you do 'mvn test' once more, you should get output that looks like this:
-
-```
-...
-Failed tests:   testCatAvailableFalseNumCats0(edu.pitt.cs.RentACatTest): No cats but catAvailable(2) returns true
-  testCatAvailableFalseNumCats3(edu.pitt.cs.RentACatTest): 3 cats and cat 2 is rented but catAvailable(2) returns true
-  testCatAvailableTrueNumCats3(edu.pitt.cs.RentACatTest): 3 cats and cat 2 is not rented but catAvailable(2) returns false
-  testCatExistsFalseNumCats0(edu.pitt.cs.RentACatTest): No cats but catExists(2) returns true
-  testCatExistsTrueNumCats3(edu.pitt.cs.RentACatTest): 3 cats but catExists(2) returns false
-  testListCatsNumCats0(edu.pitt.cs.RentACatTest): No cats but listCats() returns non-empty string expected:<[]> but was:<[empty]>
-  testListCatsNumCats3(edu.pitt.cs.RentACatTest): 3 cats and listCats() does not return the expected string expected:<ID 1. Jennyanydots[(..)
-  testRentCatFailureNumCats0(edu.pitt.cs.RentACatTest): No cats but rentCat(2) returns true
-  testRentCatFailureNumCats3(edu.pitt.cs.RentACatTest): 3 cats and cat 2 is rented but rentCat(2) returns true
-  testReturnCatFailureNumCats0(edu.pitt.cs.RentACatTest): No cats but returnCat(2) returns true
-  testReturnCatNumCats3(edu.pitt.cs.RentACatTest): (..)
-
-Tests run: 13, Failures: 11, Errors: 0, Skipped: 0
-...
-```
-
-You can see that all tests fail except the ones for getCat(int id).  That is
-because I've inserted bugs into RentACatBuggy except for that method.  If your
-unit tests pass any other method, it must be defective.  Time to fix your test!
-
-Important: don't forget to revert RentACatTest.java by removing the 'Config.setBuggyRentACat(true);' line when you are satisfied!
+After you are done writing the test cases, please don't forget to revert back
+to the IMPL InstanceType, to be able to test your own code for the green phase.
 
 ## Measuring Code Coverage
 
@@ -526,20 +442,14 @@ The statistics are generated XML (jacoco.xml), CSV (jacoco.csv), and HTML
 (index.html) formats.  The XML and CSV formats are designed to be easily
 readable by later stages of the testing pipeline that automatically generate
 reports or send notifications to developers.  The HTML format is meant for
-human cosumption.  Try opening index.html and drill down to the RentACatImpl
-class, which is the class under test which we are interested in measuring code
-coverage for.  If you have implemented all the code, it should look similar to
-the following screenshot:
+human cosumption.  Try opening index.html and drill down to either the CatImpl
+class or the RentACatImpl class, which are the classes under test which we are
+interested in measuring code coverage for.  If you have implemented all the
+test cases, it should look similar to the following screenshots:
 
-<img alt="Code Coverage Jacoco" src=code_coverage_jacoco.png width=700>
+<img alt="Code Coverage Jacoco" src=code_coverage_cat.png width=700>
 
-## Using VSCode
-
-As you can see, all instructions on this README are given based on the
-commandline.  You can use these instructions regardless of what IDE or editor
-you use for coding.  If you decide to use an IDE like VSCode, typically there
-are integrations inside the IDE to build, execute, and test your code.  I will
-demonstrate VSCode integrations in class.
+<img alt="Code Coverage Jacoco" src=code_coverage_rentacat.png width=700>
 
 # Submission
 
@@ -550,73 +460,75 @@ corner of the assignment page after submission to add his/her partner.
 The submission this time is divided into two parts:
 
 1.  Submit the repository created by GitHub Classroom for your team to
-    GradeScope at the **Exercise 2 GitHub** link.  Once you submit, GradeScope
-will run the autograder to grade you and give feedback.  If you get deductions,
-fix your code based on the feedback and resubmit.  Repeat until you don't get
+GradeScope at the **Exercise 2 GitHub** link.  Once you submit, GradeScope will
+run the autograder to grade you and give feedback.  If you get deductions, fix
+your code based on the feedback and resubmit.  Repeat until you don't get
 deductions.
 
-1. Create a screenshot of code coverage stats as shown above.  Make sure you
-   take the screenshot of the correct screen.  After you have created the
-screenshot, save the picture to a PDF file and submit to GradeScope at the
-**Exercise 2 Coverage** link.  Make sure the picture fits in one page for easy
-viewing and grading.
+1. Create screenshots of code coverage stats as shown above.  Paste the
+screenshots in the provided ReportTemplate.docx file, covert the docx to a PDF
+file and submit to GradeScope at the **Exercise 2 Coverage** link.  
 
 # GradeScope Feedback
 
-The GradeScope autograder works in 3 phases:
-1. RentACatTestSolution.(some method) on RentACatImpl: RentACatTestSolution is the solution implementation of RentACatTest.  The purpose of this phase is to verify that RentACatImpl (your RentACat implementation) does not have any defects.
-1. RentACatTest.(some method) on RentACatSolution: RentACatTest is your submitted JUnit test for RentACat.  The purpose of this phase is to test RentACatTest itself for defects.  RentACatSolution is the solution implementation of RentACat and contains no defects (that I know of).  Hence, all tests in RentACatTest should pass.
-1. RentACatTest.(some method) on RentACatBuggy: RentACatTest is your submitted JUnit test for RentACat and you are testing against the buggy RentACatBuggy implementation.  The purpose of this phase is to further test RentACatTest for defects.  It does this by testing whether RentACatTest finds all the bugs that RentACatTestSolution is able to find within RentACatBuggy.
-If you see test failures, read the feedback given by the autograder, fix your code, and retry.
+The GradeScope autograder divided into largely 7 phases.  The first 6 phases are dedicated to testing your JUnit test classes:
 
-Beside the feedback given by the autograder, the TA or myself will leave more detailed feedback on the "Feedback on source code" question.  We will also check your code coverage screenshot submission and give feedback.
+1. CatUnitTest on CatSolution 
+1. CatUnitTest on CatBuggy: 
+1. RentACatUnitTest on RentACatSolution
+1. RentACatUnitTest on RentACatBuggy
+1. RentACatIntegrationTest on RentACatSolution
+1. RentACatIntegrationTest on RentACatBuggy
+
+You will notice that each test class is run against first the solution version
+and then the buggy version.  The expectation is that they should all pass the
+solution version and fail the buggy version with the exception of the
+aforementioned 3 cases.
+
+The last phase is RentACatIntegrationTestSolution on RentACatImpl, and the
+purpose of this phase is to test the correctness of your implementation using
+the solution version of the RentACatIntegrationTest against your code.
+
+If you see test failures, read the feedback given by the autograder, fix your
+code, and retry.
+
+After the deadline, I will leave more detailed feedback on the "Feedback on
+source code" question on GradeScope.  We will also check your code coverage
+screenshot submission and give feedback.
 
 # Groupwork Plan
 
-There are two files needing modification: RentACatTest.java and
-RentACatImpl.java.  One way you can divide up the work is like the following:
+One way you can divide up the work is the following for Cat and RentACAt:
 
-[RentACatTest.java]
+[Cat]
 
-* Partner 1:
-  * setUp
-  * testCatAvailableFalseNumCats0
-  * testCatAvailableFalseNumCats3
-  * testCatAvailableTrueNumCats3
-  * testCatExistsFalseNumCats0
-  * testCatExistsTrueNumCats3
-  * testReturnCatFailureNumCats0
-  * testReturnCatNumCats3
-* Partner 2:
-  * setUp
-  * testGetCatNullNumCats0
-  * testGetCatNumCats3
-  * testListCatsNumCats0
-  * testListCatsNumCats3
-  * testRentCatFailureNumCats0
-  * testRentCatFailureNumCats3
+Both partners writes the test for CatUnitTest and the code for CatImpl.  Then
+compare the code to check each others' mistakes.  This part is relatively
+simple and should provide a solid foundation from which to attempt RentACat.
 
-[RentACatImpl.java]
+[RentACat]
+
+Both partners write the @Before setUp() method (including the mock creation
+code) --- compare and verify.  Then divide the testing and writing of methods
+in RentACat according to the following:
 
 * Partner 1:
-  * catExists
-  * returnCat
+  * getCat
+  * rentCat
 * Partner 2:
   * listCats
-  * rentCat
+  * renameCat
+  * returnCat
 
-Notice that the setUp method is repeated for both partners.  Both of you will
-have to implement parts of the setUp method to have your assigned tests
-working.  To avoid merge conflicts on GitHub while working on the same file, I
-suggest that you use the Live Share feature in VSCode to work on the same
-shared copy of code, when you are working concurrently in real time (as in the
-classroom).  After you are done with the coding session, don't forget to commit
-and push the code to the GitHub repository so that both partners have access to
-it later.  Outside of the classroom when you are not working concurrently, you
-will mostly collaborate through GitHub.  Push frequently and also pull
-frequently from your GitHub repository whenever you are done finishing a method
-to merge changes as you go along.  Please communicate frequently and help each
-other out!
+To avoid merge conflicts on GitHub while working on the same file, I suggest
+that you use the Live Share feature in VSCode to work on the same shared copy
+of code, when you are working concurrently in real time (as in the classroom).
+After you are done with the coding session, don't forget to commit and push the
+code to the GitHub repository so that both partners have access to it later.
+Outside of the classroom when you are not working concurrently, you will mostly
+collaborate through GitHub.  Push frequently and also pull frequently from your
+GitHub repository whenever you are done finishing a method to merge changes as
+you go along.  Please communicate frequently and help each other out!
 
 # Resources
 
