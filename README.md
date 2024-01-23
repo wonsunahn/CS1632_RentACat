@@ -338,7 +338,7 @@ Then, the logical order with which to write the code is the following:
 1. CatImpl.java - Write the implementation for Cat (Green: all tests should pass now).  Refactor as needed.
 1. RentACatUnitTest.java - Write the unit tests for RentACat (Red: most tests will initially fail).
 1. RentACatImpl.java - Write the implementation for RentACat (Green: all tests should pass now).  Refactor as needed.
-1. RentACatIntegrationTest.java - Write integration tests for the Rent-A-Cat system (Hopefully everything works together).
+1. RentACatIntegrationTest.java - Write integration tests for the Rent-A-Cat system (Hopefully everything works together).  Fortunately for you, you will be able to reuse a lot of the code you already wrote for RentACatUnitTest.java since many tests are going to look the same regardless of whether it is a unit test or integration test, with a few exceptions.
 
 When writing the JUnit test cases, please pay close attention to the Javadoc
 comment above each test method that describes the preconditions, execution
