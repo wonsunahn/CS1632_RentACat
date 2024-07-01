@@ -17,11 +17,13 @@
 - [Resources](#resources)
 
 # CS 1632 - Software Quality Assurance
-Spring Semester 2024 - Exercise 2
+Summer Semester 2024 - Exercise 2
 
-* DUE: February 4 (Sunday), 2024 11:59 PM
+* DUE: July 9 (Tuesday), 2024 before start of class
 
 **GitHub Classroom Link:** TBD
+
+You will be working on individual repositories this time.  See [Groupwork Plan](#groupwork-plan).
 
 ## Before You Begin
 
@@ -268,7 +270,7 @@ invokes them one by one.  You should get a result that looks like this:
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time:  6.047 s
-[INFO] Finished at: 2024-01-23T09:34:07-05:00
+[INFO] Finished at: 2024-06-23T09:34:07-05:00
 [INFO] ------------------------------------------------------------------------
 ...
 ```
@@ -453,11 +455,8 @@ test cases, it should look similar to the following screenshots:
 
 # Submission
 
-Each pairwise group will do one submission to GradeScope as usual.  The
-submitting member must use the "View or edit group" link at the top-right
-corner of the assignment page after submission to add his/her partner.  
-
-The submission this time is divided into two parts:
+Each member of a group will do **individual** submissions to GradeScope.  The
+submission this time is divided into two parts:
 
 1.  Submit the repository created by GitHub Classroom for your team to
 GradeScope at the **Exercise 2 GitHub** link.  Once you submit, GradeScope will
@@ -493,42 +492,16 @@ If you see test failures, read the feedback given by the autograder, fix your
 code, and retry.
 
 After the deadline, I will leave more detailed feedback on the "Feedback on
-source code" question on GradeScope.  We will also check your code coverage
+source code" question on GradeScope.  I will also check your code coverage
 screenshot submission and give feedback.
 
 # Groupwork Plan
 
-One way you can divide up the work is the following for Cat and RentACAt:
-
-[Cat]
-
-Both partners writes the test for CatUnitTest and the code for CatImpl.  Then
-compare the code to check each others' mistakes.  This part is relatively
-simple and should provide a solid foundation from which to attempt RentACat.
-
-[RentACat]
-
-Both partners write the @Before setUp() method (including the mock creation
-code) --- compare and verify.  Then divide the testing and writing of methods
-in RentACat according to the following:
-
-* Partner 1:
-  * getCat
-  * rentCat
-* Partner 2:
-  * listCats
-  * renameCat
-  * returnCat
-
-To avoid merge conflicts on GitHub while working on the same file, I suggest
-that you use the Live Share feature in VSCode to work on the same shared copy
-of code, when you are working concurrently in real time (as in the classroom).
-After you are done with the coding session, don't forget to commit and push the
-code to the GitHub repository so that both partners have access to it later.
-Outside of the classroom when you are not working concurrently, you will mostly
-collaborate through GitHub.  Push frequently and also pull frequently from your
-GitHub repository whenever you are done finishing a method to merge changes as
-you go along.  Please communicate frequently and help each other out!
+I want each member of the group to gain practice in doing all aspects of unit
+testing before working together on Deliverable 2.  Hence, each member will be
+working individually to complete the exercise on individual repositories.
+Having said that, you are still free to share and discuss each other's code
+(and other classmates' code for that matter, since this is an exercise!).
 
 # Resources
 
