@@ -37,8 +37,8 @@
       <id>localrepository</id>
       <url>file://${project.basedir}</url>
     </repository>
-
   </repositories>
+  
   <build>
     <plugins>
       <plugin>
