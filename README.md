@@ -13,17 +13,14 @@
   * [Measuring Code Coverage](#measuring-code-coverage)
 - [Submission](#submission)
 - [GradeScope Feedback](#gradescope-feedback)
-- [Groupwork Plan](#groupwork-plan)
 - [Resources](#resources)
 
 # CS 1632 - Software Quality Assurance
-Summer Semester 2024 - Exercise 2
+Fall Semester 2024 - Exercise 2
 
-* DUE: July 9 (Tuesday), 2024 before start of class
+* DUE: September 18 (Wednesday), 2024 before start of class
 
 **GitHub Classroom Link:** TBD
-
-You will be working on individual repositories this time.  See [Groupwork Plan](#groupwork-plan).
 
 ## Before You Begin
 
@@ -270,7 +267,7 @@ invokes them one by one.  You should get a result that looks like this:
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time:  6.047 s
-[INFO] Finished at: 2024-06-23T09:34:07-05:00
+[INFO] Finished at: 2024-09-03T09:34:07-05:00
 [INFO] ------------------------------------------------------------------------
 ...
 ```
@@ -455,8 +452,8 @@ test cases, it should look similar to the following screenshots:
 
 # Submission
 
-Each member of a group will do **individual** submissions to GradeScope.  The
-submission this time is divided into two parts:
+Please do **individual** submissions to GradeScope.  The submission this time
+is divided into two parts:
 
 1.  Submit the repository created by GitHub Classroom for your team to
 GradeScope at the **Exercise 2 GitHub** link.  Once you submit, GradeScope will
@@ -494,14 +491,6 @@ code, and retry.
 After the deadline, I will leave more detailed feedback on the "Feedback on
 source code" question on GradeScope.  I will also check your code coverage
 screenshot submission and give feedback.
-
-# Groupwork Plan
-
-I want each member of the group to gain practice in doing all aspects of unit
-testing before working together on Deliverable 2.  Hence, each member will be
-working individually to complete the exercise on individual repositories.
-Having said that, you are still free to share and discuss each other's code
-(and other classmates' code for that matter, since this is an exercise!).
 
 # Resources
 
