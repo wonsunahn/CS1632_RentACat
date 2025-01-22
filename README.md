@@ -16,9 +16,9 @@
 - [Resources](#resources)
 
 # CS 1632 - Software Quality Assurance
-Fall Semester 2024 - Exercise 2
+Spring Semester 2025 - Exercise 2
 
-* DUE: September 18 (Wednesday), 2024 before start of class
+* DUE: January 30 (Thursday), 2025 before start of class
 
 **GitHub Classroom Link:** TBD
 
@@ -267,7 +267,7 @@ invokes them one by one.  You should get a result that looks like this:
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time:  6.047 s
-[INFO] Finished at: 2024-09-03T09:34:07-05:00
+[INFO] Finished at: 2025-01-03T09:34:07-05:00
 [INFO] ------------------------------------------------------------------------
 ...
 ```
