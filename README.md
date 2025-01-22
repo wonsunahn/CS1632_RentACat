@@ -20,7 +20,7 @@ Spring Semester 2025 - Exercise 2
 
 * DUE: January 30 (Thursday), 2025 before start of class
 
-**GitHub Classroom Link:** TBD
+**GitHub Classroom Link:** https://classroom.github.com/a/Ud3omI0z
 
 ## Before You Begin
 
@@ -28,10 +28,6 @@ If you have not done so already, please [install Apache
 Maven](/exercises/0/README.md#install-apache-maven) and [install
 VSCode](/exercises/0/README.md#install-vscode) as instructed in the [Java
 Assessment Exercise](/exercises/0/README.md).
-
-Also, if you are working with a partner, you may also want to familiarize
-yourself with the Live Share feature on VSCode:
-https://code.visualstudio.com/learn/collaboration/live-share
 
 ### The POM Maven build configuration
 
