@@ -16,11 +16,11 @@
 - [Resources](#resources)
 
 # CS 1632 - Software Quality Assurance
-Spring Semester 2025 - Exercise 2
+Summer Semester 2025 - Exercise 2
 
-* DUE: January 30 (Thursday), 2025 before start of class
+* DUE: July 10 (Thursday), 2025 before start of class
 
-**GitHub Classroom Link:** https://classroom.github.com/a/Ud3omI0z
+**GitHub Classroom Link:** TBD
 
 ## Before You Begin
 
@@ -263,7 +263,7 @@ invokes them one by one.  You should get a result that looks like this:
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time:  6.047 s
-[INFO] Finished at: 2025-01-03T09:34:07-05:00
+[INFO] Finished at: 2025-06-03T09:34:07-05:00
 [INFO] ------------------------------------------------------------------------
 ...
 ```
