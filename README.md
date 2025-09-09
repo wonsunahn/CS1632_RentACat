@@ -16,9 +16,9 @@
 - [Resources](#resources)
 
 # CS 1632 - Software Quality Assurance
-Summer Semester 2025 - Exercise 2
+Fall Semester 2025 - Exercise 2
 
-* DUE: July 10 (Thursday), 2025 before start of class
+* DUE: Septembr 22 (Monday), 2025 before start of class
 
 **GitHub Classroom Link:** TBD
 
@@ -138,7 +138,7 @@ VSCode IDE.
 
 ## Running the Program
 
-Please refer to the [Deliverable 1 README](https://github.com/wonsunahn/CS1632_Summer2025/blob/main/deliverables/1/README.md#rent-a-cat-system)
+Please refer to the [Deliverable 1 README](https://github.com/wonsunahn/CS1632_Fall2025/blob/main/deliverables/1/README.md#rent-a-cat-system)
 for details on how to operate the Rent-A-Cat system.
 
 ### Using VSCode
@@ -263,7 +263,7 @@ invokes them one by one.  You should get a result that looks like this:
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time:  6.047 s
-[INFO] Finished at: 2025-06-03T09:34:07-05:00
+[INFO] Finished at: 2025-09-03T09:34:07-05:00
 [INFO] ------------------------------------------------------------------------
 ...
 ```
