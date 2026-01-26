@@ -8,7 +8,7 @@
   * [Testing the Program](#testing-the-program)
     + [Using VSCode](#using-vscode-1)
     + [Using Commandline](#using-commandline-1)
-  * [Software Developement Life Cycle using Test Driven Development](#software-developement-life-cycle-using-test-driven-development)
+  * [Software Development Life Cycle using Test Driven Development](#software-development-life-cycle-using-test-driven-development)
     + [Verifying Your Test Cases](#verifying-your-test-cases)
   * [Measuring Code Coverage](#measuring-code-coverage)
 - [Submission](#submission)
@@ -16,9 +16,9 @@
 - [Resources](#resources)
 
 # CS 1632 - Software Quality Assurance
-Fall Semester 2025 - Exercise 2
+Spring Semester 2026 - Exercise 2
 
-* DUE: Septembr 22 (Monday), 2025 before start of class
+* DUE: February 3 (Tuesday), 2026 before start of class
 
 **GitHub Classroom Link:** TBD
 
@@ -125,7 +125,7 @@ following ways:
 * Cat.java - The Cat interface with a createInstance method with which to create Cats of different types.  **Fill in** the part where the method creates a mock Cat type.
 * CatImpl.java - An implementation of the Cat interface.  **Fill in** the class with member variables and method implementations.
 * InstanceType.java - This is a Java enumeration for instance types, and you don't need to touch.
-* RentACat.java - The RentACat interface with a createInstance method with which to create RentACats of different types.  **Fill in** the part where the method creates a mock RentACat type.
+* RentACat.java - The RentACat interface with a createInstance method with which to create RentACat implementations of different types.  **Fill in** the part where the method creates a mock RentACat type.
 * RentACatImpl.java - An implementation of the RentACat interface.  **Fill in** the methods that are still incomplete.
 
 * CatUnitTest.java - The JUnit class that unit tests Cat objects.
@@ -138,19 +138,19 @@ VSCode IDE.
 
 ## Running the Program
 
-Please refer to the [Deliverable 1 README](https://github.com/wonsunahn/CS1632_Fall2025/blob/main/deliverables/1/README.md#rent-a-cat-system)
+Please refer to the [Deliverable 1 README](https://github.com/wonsunahn/CS1632_Spring2026/blob/main/deliverables/1/README.md#rent-a-cat-system)
 for details on how to operate the Rent-A-Cat system.
 
 ### Using VSCode
 
 You can run the program using the VSCode "Run and Debug" extension on the left
 menu (the one that looks like a play icon with a bug attached to it).  Once you
-click on it, you will see a dropdown menu on the topside.  
+click on it, you will see a drop-down menu on the topside.  
 
 1. To launch the solution version of the program, choose "Launch
    RentACatSolution" and then press the green play button.  
 
-   After you luanch the program, try listing the cats available for rent:
+   After you launch the program, try listing the cats available for rent:
 
    ```
    Option [1,2,3,4,5] > 1
@@ -196,7 +196,7 @@ compile the program using the 'test-compile' phase on Maven:
    mvn test-compile
    ```
 
-   If the compilation is successful, all soure codes under src/ are compiled to
+   If the compilation is successful, all source codes under src/ are compiled to
 class files under target/classes.  Make sure you invoke the 'test-compile'
 phase and not the 'compile' phase.  The former will compile both your
 implementation classes under the src/main folder and your test classes under
@@ -263,7 +263,7 @@ invokes them one by one.  You should get a result that looks like this:
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time:  6.047 s
-[INFO] Finished at: 2025-09-03T09:34:07-05:00
+[INFO] Finished at: 2026-01-13T09:34:07-05:00
 [INFO] ------------------------------------------------------------------------
 ...
 ```
@@ -280,7 +280,7 @@ following line in the output:
 It is saying that the test phase expected a minimum of 20% instruction coverage
 for the RentACatImpl class, but the tests achieved 0%.  Hence that is why it
 says 'BUILD FAILURE' in the end.  We were only able to cover 0% exactly
-becauase all test cases are empty.  You can see for yourself in all the test
+because all test cases are empty.  You can see for yourself in all the test
 classes under the src/test/ folder that all test cases have just // TODO
 comments in them.  The 20% coverage threshold is configured in the pom.xml file
 in the Jacoco plugin section:
@@ -314,7 +314,7 @@ https://www.eclemma.org/jacoco/trunk/doc/check-mojo.html We will talk more
 about Jacoco later in the [Measuring Code Coverage](#measuring-code-coverage)
 section.
 
-## Software Developement Life Cycle using Test Driven Development
+## Software Development Life Cycle using Test Driven Development
 
 Now we know how to run the program and test the program, it is time to get to
 work in completing the Rent-A-Cat system.
@@ -437,7 +437,7 @@ The statistics are generated XML (jacoco.xml), CSV (jacoco.csv), and HTML
 (index.html) formats.  The XML and CSV formats are designed to be easily
 readable by later stages of the testing pipeline that automatically generate
 reports or send notifications to developers.  The HTML format is meant for
-human cosumption.  Try opening index.html and drill down to either the CatImpl
+human consumption.  Try opening index.html and drill down to either the CatImpl
 class or the RentACatImpl class, which are the classes under test which we are
 interested in measuring code coverage for.  If you have implemented all the
 test cases, it should look similar to the following screenshots:
