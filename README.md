@@ -457,9 +457,9 @@ run the autograder to grade you and give feedback.  If you get deductions, fix
 your code based on the feedback and resubmit.  Repeat until you don't get
 deductions.
 
-1. Create screenshots of code coverage stats as shown above.  Paste the
-screenshots in the provided ReportTemplate.docx file, covert the docx to a PDF
-file and submit to GradeScope at the **Exercise 2 Coverage** link.  
+1. Create screenshots of code coverage stats as shown above.  Save the
+screenshots to PNG image format and upload to the respective upload links on
+**Exercise 2 Coverage** assignment on GradeScope.
 
 # GradeScope Feedback
 
